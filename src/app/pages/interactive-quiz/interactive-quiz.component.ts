@@ -65,16 +65,16 @@ import { NavigationService } from '../../services/navigation.service';
           <div class="quiz-question-container mb-8">
             <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                {{questions[currentQuestion]?.question}}
+                {{questions[currentQuestion].question}}
               </h3>
               
               <div class="space-y-3">
-                <div *ngFor="let option of questions[currentQuestion]?.options; let i = index"
+                <div *ngFor="let option of questions[currentQuestion].options; let i = index"
                      class="quiz-option cursor-pointer p-4 rounded-lg border transition-all duration-200 hover:border-blue-300 dark:hover:border-blue-600"
                      [ngClass]="{
                        'bg-blue-50 border-blue-300 dark:bg-blue-900/20': selectedAnswer === i && !showFeedback,
-                       'bg-green-50 border-green-300 dark:bg-green-900/20': showFeedback && i === questions[currentQuestion]?.correctAnswer,
-                       'bg-red-50 border-red-300 dark:bg-red-900/20': showFeedback && selectedAnswer === i && i !== questions[currentQuestion]?.correctAnswer
+                       'bg-green-50 border-green-300 dark:bg-green-900/20': showFeedback && i === questions[currentQuestion].correctAnswer,
+                       'bg-red-50 border-red-300 dark:bg-red-900/20': showFeedback && selectedAnswer === i && i !== questions[currentQuestion].correctAnswer
                      }"
                      (click)="selectAnswer(i)">
                   <div class="flex items-center space-x-3">
@@ -92,18 +92,18 @@ import { NavigationService } from '../../services/navigation.service';
               <div *ngIf="showFeedback" 
                    class="mt-6 p-4 rounded-lg"
                    [ngClass]="{
-                     'bg-green-100 dark:bg-green-900/20': selectedAnswer === questions[currentQuestion]?.correctAnswer,
-                     'bg-red-100 dark:bg-red-900/20': selectedAnswer !== questions[currentQuestion]?.correctAnswer
+                     'bg-green-100 dark:bg-green-900/20': selectedAnswer === questions[currentQuestion].correctAnswer,
+                     'bg-red-100 dark:bg-red-900/20': selectedAnswer !== questions[currentQuestion].correctAnswer
                    }">
                 <div class="flex items-start space-x-2">
-                  <i class="fas fa-check-circle text-green-600 mt-1" *ngIf="selectedAnswer === questions[currentQuestion]?.correctAnswer"></i>
-                  <i class="fas fa-times-circle text-red-600 mt-1" *ngIf="selectedAnswer !== questions[currentQuestion]?.correctAnswer"></i>
+                  <i class="fas fa-check-circle text-green-600 mt-1" *ngIf="selectedAnswer === questions[currentQuestion].correctAnswer"></i>
+                  <i class="fas fa-times-circle text-red-600 mt-1" *ngIf="selectedAnswer !== questions[currentQuestion].correctAnswer"></i>
                   <div>
                     <p class="font-medium text-gray-900 dark:text-white mb-2">
-                      {{selectedAnswer === questions[currentQuestion]?.correctAnswer ? 'Correct!' : 'Incorrect'}}
+                      {{selectedAnswer === questions[currentQuestion].correctAnswer ? 'Correct!' : 'Incorrect'}}
                     </p>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                      {{questions[currentQuestion]?.explanation}}
+                      {{questions[currentQuestion].explanation}}
                     </p>
                   </div>
                 </div>
