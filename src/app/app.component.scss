@@ -1,0 +1,17 @@
+// App component specific styles
+
+.main-content {
+  transition: margin-left 0.3s ease-in-out;
+}
+
+// Smooth transitions for layout changes
+.layout-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Mobile responsiveness
+@media (max-width: 1023px) {
+  .sidebar-desktop-spacing {
+    padding-left: 0 !important;
+  }
+} 

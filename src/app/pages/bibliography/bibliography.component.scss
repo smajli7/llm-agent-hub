@@ -1,0 +1,44 @@
+/* Bibliography Component Styles */
+
+.reference-item {
+  transition: all 0.2s ease-in-out;
+}
+
+.reference-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .reference-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Category filter buttons */
+.category-filter {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Citation format styling */
+.citation-example {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  line-height: 1.6;
+}
+
+/* Reference type badges */
+.type-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .reference-item {
+    padding: 1rem;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+} 

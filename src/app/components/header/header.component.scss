@@ -1,0 +1,45 @@
+// Header component specific styles
+
+.header-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+// Smooth transitions for dropdowns
+.dropdown-enter {
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 0.2s ease-out;
+}
+
+// Theme toggle animation
+.theme-toggle {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Progress bar animation
+.progress-animation {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Mobile responsiveness
+@media (max-width: 640px) {
+  .logo-text {
+    display: none;
+  }
+  
+  .quick-actions {
+    .action-text {
+      display: none;
+    }
+  }
+} 

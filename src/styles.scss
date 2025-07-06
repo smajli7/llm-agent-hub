@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+:root {
+  --primary-lavender: #e8d8f6;
+  --dark-primary: #371a3a;
+  --dark-secondary: #03061c;
+  --dark-tertiary: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-lavender-600 hover:bg-lavender-700 text-white font-medium rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:animate-lift;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-lavender-600 text-lavender-600 font-medium rounded-lg transition-all duration-300 hover:bg-lavender-600 hover:text-white;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-dark-tertiary rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:animate-lift;
+  }
+  
+  .card-interactive {
+    @apply card cursor-pointer hover:scale-105;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-lavender-200 dark:bg-dark-secondary rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-lavender-500 to-lavender-600 rounded-full transition-all duration-500 ease-out;
+  }
+  
+  .sidebar {
+    @apply fixed left-0 top-0 h-full w-80 bg-white dark:bg-dark-gradient shadow-xl z-50 transform transition-transform duration-300;
+  }
+  
+  .sidebar-closed {
+    @apply -translate-x-full;
+  }
+  
+  .quiz-option {
+    @apply p-4 rounded-lg border-2 border-gray-200 dark:border-dark-secondary hover:border-lavender-500 cursor-pointer transition-all duration-200;
+  }
+  
+  .quiz-option-correct {
+    @apply border-green-500 bg-green-50 dark:bg-green-900/20;
+  }
+  
+  .quiz-option-incorrect {
+    @apply border-red-500 bg-red-50 dark:bg-red-900/20;
+  }
+  
+  .flashcard {
+    @apply relative w-full h-64 transition-transform duration-700 transform-style-preserve-3d;
+  }
+  
+  .flashcard-flipped {
+    @apply rotate-y-180;
+  }
+  
+  .flashcard-front,
+  .flashcard-back {
+    @apply absolute inset-0 w-full h-full backface-hidden rounded-xl shadow-lg;
+  }
+  
+  .flashcard-back {
+    @apply rotate-y-180;
+  }
+}
+
+/* Dark mode styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background: linear-gradient(135deg, #371a3a 0%, #03061c 50%, #0f172a 100%);
+  background-attachment: fixed;
+  color: #f1f5f9;
+  min-height: 100vh;
+}
+
+/* Enhanced dark mode component styles */
+.dark .card {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(107, 70, 193, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dark .card:hover {
+  border-color: rgba(107, 70, 193, 0.4);
+  box-shadow: 0 20px 40px rgba(107, 70, 193, 0.2);
+}
+
+/* Dark mode text improvements */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode button improvements */
+.dark .btn-primary {
+  background: linear-gradient(135deg, #6b46c1 0%, #8b5cf6 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+}
+
+.dark .btn-primary:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+.dark .btn-secondary {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(107, 70, 193, 0.4);
+  color: #a855f7;
+}
+
+.dark .btn-secondary:hover {
+  background: rgba(107, 70, 193, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-dark-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-lavender-400 dark:bg-dark-accent rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-lavender-500 dark:bg-dark-hover;
+}
+
+/* Animation utilities */
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-dark-secondary rounded;
+}
+
+/* Confetti animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #f59e0b;
+  animation: confetti-fall 3s linear infinite;
+  z-index: 1000;
+} 
