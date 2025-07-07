@@ -289,7 +289,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-If you encounter any issues or have questions:
+If you encounter any issues or have questions: 
 
 1. **Check the Issues** tab for existing solutions
 2. **Create a new Issue** with detailed information
