@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href='/llm-agent-hub/'",
+    "build:prod": "ng build --configuration production --base-href='/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "npm run build:prod && cp dist/llm-agent-hub/index.html dist/llm-agent-hub/404.html && gh-pages -d dist/llm-agent-hub"
